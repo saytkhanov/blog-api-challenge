@@ -4,12 +4,14 @@ const app = express()
 const routes = require('./routes')
 const config = require('./config')
 
+
+
 app.use(indexedDB)
 app.use(express.json)
 app.use(express.urlencoded({ extended: true}))
 
 mongoose
-  .connect(config.url, {
+  .connect('mongodb+srv://Abu:bmw550@cluster0.1ex3o.mongodb.net/blog-api', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false
@@ -20,4 +22,3 @@ mongoose
 .catch(e => {
   console.log(e)
 })
-app.
