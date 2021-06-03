@@ -1,14 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const routes = require('./routes')
-const config = require('./config')
+const routes = require('../routes/index')
 
-
-
-app.use(indexedDB)
 app.use(express.json)
 app.use(express.urlencoded({ extended: true}))
+app.use(routes)
 
 mongoose
   .connect('mongodb+srv://Abu:bmw550@cluster0.1ex3o.mongodb.net/blog-api', {
@@ -21,4 +18,7 @@ mongoose
 })
 .catch(e => {
   console.log(e)
+})
+app.listen(3000, () => {
+  console.log('Run')
 })
