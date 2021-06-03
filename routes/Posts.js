@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const Post = require('../models/Post')
+const { getPots, getPostById, getPostCategoryId, post, patchPost, deletePost} = require('../controllers/posts')
 const router = Router()
 
 router.get('/posts', async (req, res) => {
@@ -37,11 +38,7 @@ const postPatch = await Post.findByIdAndUpdate(
 res.json(postPatch)
 })
 
-router.delete('/posts/:id', async (req, res) => {
-  const posts = await Post.findByIdAndDelete({
-    _id: req.params.id
-  })
-  res.json(posts)
+router.delete('/posts/:id',
 })
 
 module.exports = router
