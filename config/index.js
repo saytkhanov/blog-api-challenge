@@ -6,7 +6,7 @@ const config = require('./config')
 
 
 
-app.use(indexedDB)
+
 app.use(express.json)
 app.use(express.urlencoded({ extended: true}))
 
